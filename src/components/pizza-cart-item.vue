@@ -7,11 +7,11 @@
             </a>
         </td>
         <td>  {{ cart_item_data.name }}   </td>
-        <td>  <div>-</div>   </td>
+        <td>  <div @click="decrementItem">-</div>   </td>
         <td class="quantity">
             <div class="pizza-cart-item-quantity">{{ cart_item_data.quantity }}</div>
         </td>
-        <td>  <div>+</div>   </td>
+        <td>  <span @click="incrementItem">+</span>   </td>
         <td>  
             <button class="btn btn-primary" @click="deleteFromCart">  Удалить </button>
         </td>
@@ -22,6 +22,10 @@
 </template>
 
 <script>
+    // import { 
+    //     mapActions, 
+    //     mapGetters 
+    // } from 'vuex'
     export default {
         name: 'pizza-cart-item',
         props: {
@@ -36,6 +40,14 @@
             return {}
         },
         methods: {
+            decrementItem() {
+                this.$emit('decrement')
+                console.log('-')
+            },
+            incrementItem() {
+                this.$emit('increment')
+                console.log('+')
+            },
             deleteFromCart() {
                 this.$emit('deleteFromCart')
             }
