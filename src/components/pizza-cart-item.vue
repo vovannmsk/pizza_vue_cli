@@ -7,10 +7,11 @@
             </a>
         </td>
         <td>  {{ cart_item_data.name }}   </td>
-        <td>
+        <td>  <div>-</div>   </td>
+        <td class="quantity">
             <div class="pizza-cart-item-quantity">{{ cart_item_data.quantity }}</div>
         </td>
-
+        <td>  <div>+</div>   </td>
         <td>  
             <button class="btn btn-primary" @click="deleteFromCart">  Удалить </button>
         </td>
@@ -43,17 +44,18 @@
         },
         computed: {
             totalPrice: function() {
-                return this.cart_item_data.currentPrice * 1
+                return this.cart_item_data.currentPrice * this.cart_item_data.quantity
             }
+
         },
     }
 </script>
 
 
-<style>
-    /* .pizza-cart-item {
-
-
-    } */
+<style lang="scss">
+    // .quantity {
+    //     width: 200px;
+    //     display: inline-block;
+    // }
 
 </style>

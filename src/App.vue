@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <PizzaWrapper></PizzaWrapper>
-    конец app
   </div>
 </template>
 

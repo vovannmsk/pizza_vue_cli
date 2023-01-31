@@ -8,16 +8,7 @@
         <div class="row">
             <div class="col-md-3">    <!--  sidebar  -->
             </div>
-            <!-- <RouterView></RouterView> -->
-            <!-- <router-view>        </router-view> -->
-            <div class="col-md-9">    
-                <pizzaCatalog></pizzaCatalog>
-            </div>
-            <pizzaCart 
-                v-if="CART.length"
-                :cart_data="CART"
-                >
-            </pizzaCart>
+            <router-view> </router-view>
         </div>
 
     </div>
@@ -26,30 +17,18 @@
 </template>
 
 <script>
-import pizzaCatalog from './pizza-catalog.vue'
-import pizzaCart from './pizza-cart.vue'
 
-import { mapGetters} from 'vuex'
+// import { mapGetters} from 'vuex'
 
     export default {
         name: 'pizza-wrapper',
-        components: {
-            pizzaCatalog,
-            pizzaCart,
-        },
         props: {},
         data() {
             return {
-                title: 'Pizza Wrapper ура ура'
             }
         },
-        computed: {
-            ...mapGetters([
-                'CART'
-            ])
-        },
+        computed: {},
         methods: {},
-
     }
 </script>
 

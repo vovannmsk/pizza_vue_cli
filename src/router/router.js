@@ -1,25 +1,29 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+// import { createApp } from 'vue'
+// import App from './App.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+
 import pizzaCatalog from '../components/pizza-catalog.vue'
 import pizzaCart from '../components/pizza-cart.vue'
+// import pizzaWrapper from '../components/pizza-wrapper.vue'
 
-Vue.useAttrs(Router);
 
-let router = new Router ({
+
+const router = createRouter ({
+    history : createWebHistory(),
     routes: [
         {
             path: '/',
             name: 'catalog',
-            component: pizzaCatalog
+            // component: pizzaWrapper
+            component: pizzaCatalog,
         },
         {
             path: '/cart',
             name: 'cart',
-            component: pizzaCart
+            component: pizzaCart,
+            // props: true,
         },
     ]
-
-
 })
 
 export default router;

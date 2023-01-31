@@ -63,6 +63,21 @@ export default createStore({
     DELETE_FROM_CART({commit}, index) {
       commit('REMOVE_FROM_CART', index)
     },
+  },
+  computed: {
+    // totalPrice: function() {
+    //   return this.cart_item_data.currentPrice * this.cart_item_data.quantity
+    // },
+    // totalSumma: function() {
+    //   let summa = 0
+    //   console.log(this.cart.length)
+    //   for (let item of this.cart) {
+    //     summa = summa + item.currentPrice * item.quantity
+    //   }
+    //   console.log(summa)
+    //   return summa
+    // }
+    
 
   },
   modules: {  }

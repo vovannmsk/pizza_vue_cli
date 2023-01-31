@@ -1,7 +1,13 @@
 <template>
     <div class="pizza-catalog">
-        <!--<p class="aa">Каталог</p> -->
-
+        <!-- <font-awesome-icon icon="fa-solid fa-cart-shopping"  size="xl">
+        </font-awesome-icon> -->
+        <router-link :to="{name: 'cart'}">
+            <div class="pizza-catalog__link_to_cart  btn btn-secondary">Cart: {{ CART.length }}</div>
+        </router-link>
+ 
+                
+        <!-- </div> -->
         <div class="container">
             <div class="row">
                 <pizzaCatalogItem
@@ -32,7 +38,10 @@
             }
         },
         computed: {
-            ...mapGetters(['PRODUCTS']),
+            ...mapGetters([
+                'PRODUCTS',
+                'CART'
+            ]),
         },
         methods: {
             ...mapActions([
@@ -54,9 +63,15 @@
 </script>
 
 
-<style>
-    /* .pizza-catalog {
-
-    } */
+<style lang="scss">
+    .pizza-catalog {
+        &__link_to_cart {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: $padding*2;
+            border: solid 1px #aeaeae;
+        }
+    } 
 
 </style>
