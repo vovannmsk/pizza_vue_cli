@@ -16,6 +16,7 @@
                     :product_data="product"
                     @productToCart="addToCart"
                 >
+                    <!-- @productDetail="toProductDetail" -->
                 </pizzaCatalogItem>
             </div>
         </div>    
@@ -40,23 +41,27 @@
         computed: {
             ...mapGetters([
                 'PRODUCTS',
-                'CART'
+                'CART',
+                'CATEGORY',
             ]),
         },
         methods: {
             ...mapActions([
+                'GET_PRODUCTS_OF_CATEGORY_FROM_API',
                 'GET_PRODUCTS_FROM_API',
                 'ADD_TO_CART'
             ]),
             addToCart(data) {
-                // console.log (data.pk)
                 this.ADD_TO_CART(data)
             },
-
-
+            // toProductDetail() {
+                
+            // }
         },
         mounted() {
-            this.GET_PRODUCTS_FROM_API()
+            this.GET_PRODUCTS_OF_CATEGORY_FROM_API(this.CATEGORY)
+            // this.GET_PRODUCTS_FROM_API();
+
         }
 
     }

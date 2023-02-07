@@ -1,7 +1,11 @@
 <template>
     <div class="pizza-catalog-item col-lg-3 col-sm-6 mb-2 card">
         <div class="card-img-top product-thumb">
-            <a href="/"><img :src="product_data.photo" :alt="product_data.shortName">  </a>
+            <!-- сделать из этого изображения router-link -->
+            <img    :src="product_data.photo" 
+                    :alt="product_data.shortName"
+            >
+            <!-- @click="selectProduct" -->
         </div>
         <div class="card-body product-details">
             <h4 class="card-title">{{product_data.name}}</h4>
@@ -24,6 +28,7 @@
         </div>
     </div>
 </template>
+
 <script>
     export default {
         name: 'pizza-catalog-item',
@@ -47,7 +52,10 @@
         methods: {
             addToCart() {
                 this.$emit('productToCart', this.product_data)
-            }
+            },
+            // selectProduct() {
+            //     this.$emit('productDetail', this.product_data)
+            // },
         },
     }
 </script>
@@ -65,15 +73,20 @@
         box-shadow: 0 14px 30px -15px rgba(0,0,0,0.75);
     }
 
-    .product-thumb a {
+    // .product-thumb a {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     height: 200px;
+    //     padding: 20px;
+    // }
+
+    .product-thumb img {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 200px;
         padding: 20px;
-    }
-
-    .product-thumb img {
         max-width: 100%;
         max-height: 100%;
     }

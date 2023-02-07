@@ -5,20 +5,25 @@
 </head>
 <body link="White">
     <div class="pizza-wrapper container">
-        <div class="row">
-            <div class="col-md-3">    <!--  sidebar  -->
+        <pizza-navbar> </pizza-navbar>
+        <router-view> </router-view>
+        <!-- <div class="row">
+            <div class="col-md-3">    
+                <pizza-categories> </pizza-categories>
             </div>
-            <router-view> </router-view>
-        </div>
-
+            <div class="col-md-9"> 
+                <router-view> </router-view>
+            </div>
+        </div> -->
     </div>
 </body>
 
 </template>
 
 <script>
+// import pizzaCategories from './pizza-categories.vue';
+import pizzaNavbar from './pizza-navbar.vue';
 
-// import { mapGetters} from 'vuex'
 
     export default {
         name: 'pizza-wrapper',
@@ -26,6 +31,10 @@
         data() {
             return {
             }
+        },
+        components: {
+            // pizzaCategories,
+            pizzaNavbar,
         },
         computed: {},
         methods: {},

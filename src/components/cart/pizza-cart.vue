@@ -1,7 +1,10 @@
 <template>
     <div class="pizza-cart container">
-        <router-link :to="{name: 'catalog'}">
+        <!-- <router-link :to="{name: 'catalog'}">
             <div class="pizza-cart__link_to_catalog btn btn-secondary">В каталог</div>
+        </router-link> -->
+        <router-link :to="{name: 'wrapperCatalog'}">
+            <div class="pizza-cart__link_to_wrapper_catalog btn btn-secondary">В каталог</div>
         </router-link>
 
         <div class="row">
@@ -42,7 +45,7 @@
                             <td colspan="2"></td>
                             <td class="num"> {{ totalQuantity }}  </td>
                             <td colspan="3"></td>
-                            <td class="num"> {{ totalSumma }} руб.  </td>
+                            <td class="num">{{ totalSumma }}руб.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -118,9 +121,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        max-width: 900px;
+        max-width: 1300px;
         margin: 0 auto;
-        &__link_to_catalog {
+        &__link_to_wrapper_catalog {
             position: absolute;
             top: 10px;
             right: 10px;
@@ -128,7 +131,7 @@
             border: solid 1px #aeaeae;
         }
         .total {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
         }
         .table th {

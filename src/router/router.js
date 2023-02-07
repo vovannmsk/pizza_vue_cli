@@ -2,9 +2,9 @@
 // import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
-import pizzaCatalog from '../components/pizza-catalog.vue'
-import pizzaCart from '../components/pizza-cart.vue'
-// import pizzaWrapper from '../components/pizza-wrapper.vue'
+import pizzaWrapperCatalog from '../components/catalog/pizza-wrapper-catalog.vue'
+import pizzaCart from '../components/cart/pizza-cart.vue'
+import pizzaWrapperProduct from '../components/product/pizza-wrapper-product.vue'
 
 
 
@@ -13,9 +13,9 @@ const router = createRouter ({
     routes: [
         {
             path: '/',
-            name: 'catalog',
-            // component: pizzaWrapper
-            component: pizzaCatalog,
+            name: 'wrapperCatalog',
+            // name: 'catalog',
+            component: pizzaWrapperCatalog,
         },
         {
             path: '/cart',
@@ -23,6 +23,13 @@ const router = createRouter ({
             component: pizzaCart,
             // props: true,
         },
+        {
+            path: '/product',
+            name: 'product',
+            component: pizzaWrapperProduct,
+            // props: true,
+        },
+
     ]
 })
 
