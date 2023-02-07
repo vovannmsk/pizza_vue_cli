@@ -14,7 +14,9 @@ export default {
     SET_PRODUCT_TO_STATE: (state, product) => {
         state.product = product;
     },
-
+    SET_FEEDBACKS_TO_STATE: (state, feedbacks) => {
+        state.feedbacks = feedbacks;
+    },
     SET_CART: (state, product)=> {
         if (state.cart.length) {
         let isProductExists = false
@@ -46,5 +48,9 @@ export default {
     },
     SELECT_CATEGORY: (state, pk) => {
         state.selectedCategory = pk
+    },
+    SELECT_PRODUCT: (state, pk) => {
+        //console.log(pk);
+        state.selectedProduct = pk
     }
 }

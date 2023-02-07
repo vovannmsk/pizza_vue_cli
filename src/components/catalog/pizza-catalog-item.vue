@@ -1,11 +1,13 @@
 <template>
     <div class="pizza-catalog-item col-lg-3 col-sm-6 mb-2 card">
         <div class="card-img-top product-thumb">
-            <!-- сделать из этого изображения router-link -->
-            <img    :src="product_data.photo" 
-                    :alt="product_data.shortName"
-            >
-            <!-- @click="selectProduct" -->
+            <!-- <router-link :to="{name: 'product', params: {pk: product_data.pk}}"> -->
+            <router-link :to="{name: 'product'}">
+                <img    :src="product_data.photo" 
+                        :alt="product_data.shortName"
+                        @click="showProductDetail"
+                >
+            </router-link>
         </div>
         <div class="card-body product-details">
             <h4 class="card-title">{{product_data.name}}</h4>
@@ -30,6 +32,8 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex'
+
     export default {
         name: 'pizza-catalog-item',
         components: {
@@ -50,12 +54,21 @@
         },
         computed: {},
         methods: {
+            ...mapActions([
+                'SELECT_PRODUCT_FROM_CATALOG',
+                'SET_PRODUCT_FROM_CATALOG',
+            ]),
             addToCart() {
                 this.$emit('productToCart', this.product_data)
             },
-            // selectProduct() {
-            //     this.$emit('productDetail', this.product_data)
-            // },
+            /**
+            * текущий продукт считается выбранным для последующего 
+            * использования в других компонентах. 
+            */
+            showProductDetail() {
+                this.SELECT_PRODUCT_FROM_CATALOG(this.product_data.pk)
+                this.SET_PRODUCT_FROM_CATALOG(this.product_data)
+            }
         },
     }
 </script>

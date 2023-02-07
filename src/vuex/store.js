@@ -13,6 +13,8 @@ export default createStore({
     categories: [],
     selectedCategory: 0,
     product: {},
+    selectedProduct: 0,
+    feedbacks: [],
   },
   getters,
   mutations,

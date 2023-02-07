@@ -5,9 +5,7 @@
         <router-link :to="{name: 'cart'}">
             <div class="pizza-catalog__link_to_cart  btn btn-secondary">Cart: {{ CART.length }}</div>
         </router-link>
- 
-                
-        <!-- </div> -->
+
         <div class="container">
             <div class="row">
                 <pizzaCatalogItem

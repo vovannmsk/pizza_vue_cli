@@ -27,7 +27,7 @@ const router = createRouter ({
             path: '/product',
             name: 'product',
             component: pizzaWrapperProduct,
-            // props: true,
+            props: true,
         },
 
     ]
