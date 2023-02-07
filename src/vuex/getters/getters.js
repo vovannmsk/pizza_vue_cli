@@ -5,13 +5,21 @@ export default  {
   CART(state) {
     return state.cart;
   },
-  
+  PRODUCT(state) {
+    return state.product;
+  },
+  FEEDBACKS(state) {
+    return state.feedbacks;
+  },
+  SELECTED_PRODUCT(state) {
+    return state.selectedProduct;
+  },
+
   /**
    * список категорий. отсортирован по id
    */
   CATEGORIES(state) {
     return state.categories.sort((a, b) => ( (a.id > b.id) ? 1 : -1 ));
-    // список категорий отсортирован по id
   },
   CATEGORY(state) {
     // console.log(state.selectedCategory);

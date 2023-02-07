@@ -3,18 +3,18 @@
         <br>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#" >
-                    <img src="../assets/Logo.jpg" width=100% height="60px" alt="Пиццерия 4 сыра">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"> <a class="nav-link" aria-current="page" href="#">Заказ пиццы</a> </li>
+                        <li class="nav-item"> 
+                            <router-link :to="{name: 'main'}" class="nav-link">Главная</router-link>
+                        </li>
+                        <li class="nav-item"> 
+                            <router-link :to="{name: 'wrapperCatalog'}" class="nav-link">Заказ пиццы</router-link>
+                        </li>
                         <li class="nav-item"> <a class="nav-link" href="#">Оставить отзыв</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="#">О нас</a> </li>
+                        <li class="nav-item"> 
+                            <router-link :to="{name: 'contacts'}" class="nav-link">О нас</router-link>
+                        </li>
 
                         <!-- {% if request.user.is_authenticated %} -->
                         <li class="nav-item"> <a class="nav-link" href="#">Мои заказы</a> </li>

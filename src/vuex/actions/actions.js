@@ -24,4 +24,15 @@ export default {
     SELECT_CATEGORY_PRODUCTS({commit}, index) {
       commit('SELECT_CATEGORY', index)
     },
+    SELECT_PRODUCT_FROM_CATALOG({commit}, index) {
+      // console.log(index)
+      commit('SELECT_PRODUCT', index)
+    },
+    /**
+    * записываем product в хранилище (в product: {},)
+    */
+    SET_PRODUCT_FROM_CATALOG({commit}, product) {
+      // console.log(product)
+      commit('SET_PRODUCT_TO_STATE', product)
+    },
   }

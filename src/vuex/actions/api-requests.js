@@ -1,4 +1,5 @@
 import axios from "axios";
+import store from "../store";
 
 export default {
   // GET_PRODUCTS_FROM_API({commit}) {
@@ -44,12 +45,23 @@ export default {
                   })
     }
   },
-  GET_PRODUCT_FROM_API({commit}, pk) {
-    console.log(pk)
-    return axios.get('http://localhost:8000/api/v1/list/' + pk)
+  GET_PRODUCT_FROM_API({commit}) {
+    // console.log(store.state.selectedProduct)
+    return axios.get('http://localhost:8000/api/v1/list/' + store.state.selectedProduct)
                 .then((product) => {
                   commit('SET_PRODUCT_TO_STATE', product.data);
                   return product
+                }).catch((error) => {
+                  console.log(error)
+                  return error;
+                })
+  },
+  GET_FEEDBACKS_FROM_API({commit}) {
+    // console.log(store.state.selectedProduct)
+    return axios.get('http://localhost:8000/api/v1/feedback/' + store.state.selectedProduct)
+                .then((feedbacks) => {
+                  commit('SET_FEEDBACKS_TO_STATE', feedbacks.data);
+                  return feedbacks
                 }).catch((error) => {
                   console.log(error)
                   return error;
