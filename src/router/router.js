@@ -14,7 +14,6 @@ const router = createRouter ({
         {
             path: '/',
             name: 'wrapperCatalog',
-            // name: 'catalog',
             component: pizzaWrapperCatalog,
         },
         {
