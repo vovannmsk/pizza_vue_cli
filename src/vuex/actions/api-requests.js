@@ -2,16 +2,6 @@ import axios from "axios";
 import store from "../store";
 
 export default {
-  // GET_PRODUCTS_FROM_API({commit}) {
-  //   return axios.get('http://localhost:8000/api/v1/generic/list')
-  //               .then((products) => {
-  //                 commit('SET_PRODUCTS_TO_STATE', products.data);
-  //                 return products
-  //               }).catch((error) => {
-  //                 console.log(error)
-  //                 return error;
-  //               })
-  // },
   GET_CATEGORIES_FROM_API({commit}) {
     return axios.get('http://localhost:8000/api/v1/generic/cat')
                 .then((categories) => {
@@ -62,6 +52,20 @@ export default {
                 .then((feedbacks) => {
                   commit('SET_FEEDBACKS_TO_STATE', feedbacks.data);
                   return feedbacks
+                }).catch((error) => {
+                  console.log(error)
+                  return error;
+                })
+  },
+    /**
+   * получаем список продуктов по указанной ссылке
+   * используется для пагинации
+   */
+  GET_PRODUCTS_FROM_API({commit}, pagination_url) {
+    return axios.get(pagination_url)
+                .then((products) => {
+                  commit('SET_PRODUCTS_TO_STATE', products.data);
+                  return products
                 }).catch((error) => {
                   console.log(error)
                   return error;
