@@ -15,6 +15,8 @@ export default createStore({
     product: {},
     selectedProduct: 0,
     feedbacks: [],
+    minPrice: 0,
+    maxPrice:2500
   },
   getters,
   mutations,

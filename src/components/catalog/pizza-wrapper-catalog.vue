@@ -7,7 +7,8 @@
         <div class="row">
             <div class="col-md-3">    
                 <!--  sidebar  -->
-                <pizza-categories> </pizza-categories>
+                <!-- <pizza-categories> </pizza-categories> -->
+                <pizzaWrapperFilters></pizzaWrapperFilters>
             </div>
             <div class="col-md-9"> 
                 <pizza-catalog></pizza-catalog>
@@ -17,14 +18,16 @@
 </template>
 
 <script>
-    import pizzaCategories from './pizza-categories.vue'
+    // import pizzaCategories from './pizza-categories.vue'
     import pizzaCatalog from './pizza-catalog.vue'
+    import pizzaWrapperFilters from './pizza-wrapper-filters.vue'
 
     export default {
         name: 'pizza-wrapper-catalog',
         components: {
             pizzaCatalog,
-            pizzaCategories,
+            // pizzaCategories,
+            pizzaWrapperFilters,
         },
         props: {},
         data() {

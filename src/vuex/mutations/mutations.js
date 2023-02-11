@@ -52,5 +52,12 @@ export default {
     SELECT_PRODUCT: (state, pk) => {
         //console.log(pk);
         state.selectedProduct = pk
-    }
+    },
+    SET_MIN_PRICE_TO_STATE: (state, price) => {
+        state.minPrice = price;
+    },
+    SET_MAX_PRICE_TO_STATE: (state, price) => {
+        state.maxPrice = price;
+    },
+
 }

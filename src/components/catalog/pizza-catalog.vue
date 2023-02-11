@@ -9,20 +9,21 @@
         <div class="container">
             <div class="row">
                 <pizzaCatalogItem
-                    v-for="product in PRODUCTS.results"
+                    v-for="product in filteredProducts"
                     :key="product.pk"
                     :product_data="product"
                     @productToCart="addToCart"
                 >
+                <!-- v-for="product in PRODUCTS.results" -->
 
                 </pizzaCatalogItem>
             </div>
 
+            <!-- пагинация -->
             <br> <br>
             <nav aria-label="...">
             <ul class="pagination justify-content-center">
-
-
+                <!-- стрелка влево -->
                 <a 
                     v-if="PRODUCTS.previous"
                     @click="page_change_previous"
@@ -33,10 +34,12 @@
                     <span aria-hidden="true">&laquo;</span>
                 </a>
 
+                <!-- номер текущей страницы -->
                 <li class="page-item active" aria-current="page">
                     <a class="page-link" href="#">{{number_page_f()}}</a>
                 </li>
 
+                <!-- стрелка вправо -->
                 <a  
                     v-if="PRODUCTS.next"
                     @click="page_change_next"
@@ -64,7 +67,7 @@
         props: {},
         data() {
             return {
-      
+                sortedProducts: [],
             }
         },
         computed: {
@@ -72,7 +75,16 @@
                 'PRODUCTS',
                 'CART',
                 'CATEGORY',
+                'MIN_PRICE',
+                'MAX_PRICE',
             ]),
+            filteredProducts() {
+                if (this.sortedProducts.length) {
+                return this.sortedProducts
+                } else {
+                return this.PRODUCTS.results
+                }
+            },
         },
         methods: {
             ...mapActions([
@@ -107,15 +119,25 @@
                         return 1
                     }
                 }
+            },
+            sorting_products() {
+                let vm = this;
+                this.sortedProducts = [...this.PRODUCTS.results]
+                console.log(this.sortedProducts)
+                this.sortedProducts = this.sortedProducts.filter(function (item) {
+                    return item.currentPrice >= vm.MIN_PRICE && item.currentPrice <= vm.MAX_PRICE;
+                });
+                console.log(this.sortedProducts)
             }
 
         },
         mounted() {
+            // подгружаем список товаров из выбранной категории
+            // по умолчанию это - все категории товаров
             this.GET_PRODUCTS_OF_CATEGORY_FROM_API(this.CATEGORY)
         }
     }
 </script>
-
 
 <style lang="scss">
     .pizza-catalog {

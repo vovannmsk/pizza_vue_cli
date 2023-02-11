@@ -35,4 +35,13 @@ export default {
       // console.log(product)
       commit('SET_PRODUCT_TO_STATE', product)
     },
+    MIN_PRICE_CHANGE({commit}, price) {
+      // console.log(product)
+      commit('SET_MIN_PRICE_TO_STATE', price)
+    },
+    MAX_PRICE_CHANGE({commit}, price) {
+      // console.log(product)
+      commit('SET_MAX_PRICE_TO_STATE', price)
+    },
+
   }

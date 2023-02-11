@@ -14,7 +14,12 @@ export default  {
   SELECTED_PRODUCT(state) {
     return state.selectedProduct;
   },
-
+  MIN_PRICE(state) {
+    return state.minPrice;
+  },
+  MAX_PRICE(state) {
+    return state.maxPrice;
+  },
   /**
    * список категорий. отсортирован по id
    */
