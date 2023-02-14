@@ -1,3 +1,5 @@
+// import axios from "axios";
+
 export default {
     // GET_SEARCH_VALUE_TO_VUEX ({commit}, value) {
     //   commit('SET_SEARCH_VALUE_TO_VUEX', value)
@@ -10,6 +12,7 @@ export default {
     // },
 
     ADD_TO_CART({commit}, product) {
+      //console.log(product.name)
       commit('SET_CART', product);
     },
     DELETE_FROM_CART({commit}, index) {
@@ -43,5 +46,37 @@ export default {
       // console.log(product)
       commit('SET_MAX_PRICE_TO_STATE', price)
     },
+    FILTER_PRODUCTS({commit}) {
+      commit('SET_FILTERED_PRODUCTS_TO_STATE')
+    },
+    CHANGE_CURRENT_PAGE({commit}, index) {
+      commit('SET_CURRENT_PAGE', index)
+    },
+    USER_LOGOUT(context) {
+      if (context.getters.LOGGED_IN) {
+        context.commit('DESTROY_TOKEN')
+      }
+    },
+    CHANGE_USERNAME({commit}, name) {
+      commit('SET_USERNAME', name)
+    },
+    /**
+    * переводим все фильтры каталога в начальное положение
+    * применяем при логировании
+    */    
+    RESET_ALL_FILTERS({commit}) {
+      commit('SET_MIN_PRICE_TO_STATE', 0)
+      commit('SET_MAX_PRICE_TO_STATE', 2500)
+      commit('SELECT_CATEGORY', { "id": 0,
+                                  "pk": 0,
+                                  "nameOfType": "Все категории",
+                                  "slug": "all"
+                                })
+    },
+
+    // FORMATTED_PRICE(value) {
+    //   return value.replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' руб.'
+    // },
+  
 
   }

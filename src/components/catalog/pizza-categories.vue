@@ -1,10 +1,11 @@
 <template>
     <div class="pizza-categories">
         <ul class="list-group">
-            <li class="list-group-item btn" v-bind:class="{active: category.pk===CATEGORY}" 
+            <li class="list-group-item btn" 
+                v-bind:class="{active: category.pk===CATEGORY.pk}" 
                 v-for="category in CATEGORIES"
                 :key="category.pk"
-                @click="selectOfCategory(category.pk)"
+                @click="selectOfCategory(category)"
             >  
                 {{category.nameOfType}}
             </li>    
@@ -28,6 +29,7 @@
             ...mapGetters([
                 'CATEGORIES',
                 'CATEGORY',
+                'FILTERED_PRODUCTS',
             ]),
             
         },
@@ -35,11 +37,16 @@
             ...mapActions([
                 'GET_CATEGORIES_FROM_API',
                 'SELECT_CATEGORY_PRODUCTS',
-                'GET_PRODUCTS_OF_CATEGORY_FROM_API',
+                'FILTER_PRODUCTS',
+                'CHANGE_CURRENT_PAGE',
             ]),
-            selectOfCategory(pk) {
-                this.SELECT_CATEGORY_PRODUCTS(pk)
-                this.GET_PRODUCTS_OF_CATEGORY_FROM_API(this.CATEGORY)                
+            selectOfCategory(category) {
+                // фиксируем выбранную категорию товаров в store
+                this.SELECT_CATEGORY_PRODUCTS(category);
+                // запускаем отбор по установленным фильтрам
+                // и текущая страница в пагинации = 1
+                this.FILTER_PRODUCTS();
+                this.CHANGE_CURRENT_PAGE(1);
             },
         },
         mounted() {

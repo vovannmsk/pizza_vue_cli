@@ -1,8 +1,5 @@
 <template>
     <div class="pizza-cart container">
-        <!-- <router-link :to="{name: 'catalog'}">
-            <div class="pizza-cart__link_to_catalog btn btn-secondary">В каталог</div>
-        </router-link> -->
         <router-link :to="{name: 'wrapperCatalog'}">
             <div class="pizza-cart__link_to_wrapper_catalog btn btn-secondary">В каталог</div>
         </router-link>

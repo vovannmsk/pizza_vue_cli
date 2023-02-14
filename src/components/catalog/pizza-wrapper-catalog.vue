@@ -1,13 +1,8 @@
 <template>
     <div class="pizza-wrapper-catalog">
-        <!-- <router-link :to="{name: 'cart'}">
-            <div class="pizza-catalog__link_to_cart  btn btn-secondary">Cart: {{ CART.length }}</div>
-        </router-link> -->
-
         <div class="row">
             <div class="col-md-3">    
                 <!--  sidebar  -->
-                <!-- <pizza-categories> </pizza-categories> -->
                 <pizzaWrapperFilters></pizzaWrapperFilters>
             </div>
             <div class="col-md-9"> 
@@ -18,15 +13,14 @@
 </template>
 
 <script>
-    // import pizzaCategories from './pizza-categories.vue'
     import pizzaCatalog from './pizza-catalog.vue'
     import pizzaWrapperFilters from './pizza-wrapper-filters.vue'
+    // import { mapActions,  } from 'vuex'
 
     export default {
         name: 'pizza-wrapper-catalog',
         components: {
             pizzaCatalog,
-            // pizzaCategories,
             pizzaWrapperFilters,
         },
         props: {},
@@ -35,11 +29,14 @@
                 
             }
         },
-        computed: {
-        },
+        computed: {},
         methods: {
+            // ...mapActions([
+            //     'GET_PRODUCTS_FROM_API',
+            // ]),
         },
         mounted() {
+            // this.GET_PRODUCTS_FROM_API();
         }
 
     }

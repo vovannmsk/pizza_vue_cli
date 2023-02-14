@@ -8,10 +8,15 @@
                         <li class="nav-item"> 
                             <router-link :to="{name: 'main'}" class="nav-link">Главная</router-link>
                         </li>
+                        
                         <li class="nav-item"> 
                             <router-link :to="{name: 'wrapperCatalog'}" class="nav-link">Заказ пиццы</router-link>
                         </li>
-                        <li class="nav-item"> <a class="nav-link" href="#">Оставить отзыв</a> </li>
+
+                        <li class="nav-item"> 
+                            <router-link :to="{name: 'postFeedback'}" class="nav-link">Оставить отзыв</router-link>
+                        </li>
+
                         <li class="nav-item"> 
                             <router-link :to="{name: 'contacts'}" class="nav-link">О нас</router-link>
                         </li>
@@ -19,18 +24,33 @@
                         <!-- {% if request.user.is_authenticated %} -->
                         <li class="nav-item"> <a class="nav-link" href="#">Мои заказы</a> </li>
 
+                        <li class="nav-item"> 
+                            <router-link :to="{name: 'myFeedbacks'}" class="nav-link">Мои отзывы</router-link>
+                        </li>
+
                         <!-- {% if request.user.username == 'admin' %} -->
-                        <li class="nav-item"> <a class="nav-link" href="#">Админка</a> </li>
-                        <!-- {% endif %} -->
-                        <!-- {% endif %} -->
+                        <li v-if="LOGGED_IN" class="nav-item"> 
+                            <a class="nav-link" href="'http://localhost:8000/admin">Админка</a> 
+                        </li>
+
+
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <!-- {% if request.user.is_authenticated %} -->
-                        <!-- <li class="nav-item"> <a class="nav-link" href="#">user.username | Выйти</a></li> -->
-                        <!-- {% else %} -->
-                        <li class="nav-item"> <a class="nav-link" href="#">Войти</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="#">Регистрация</a> </li>
-                        <!-- {% endif %} -->
+                        <li v-if = "LOGGED_IN" 
+                            class="nav-item"
+                        >   
+                            <router-link :to="{name: 'logout'}" class="nav-link">
+                                {{USERNAME}} | Выйти
+                            </router-link>
+                        </li>
+                        <li v-else class="nav-item"> 
+                            <router-link :to="{name: 'login'}" class="nav-link">
+                                Войти
+                            </router-link>
+                        </li>
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="#">Регистрация</a> 
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -53,8 +73,9 @@
         },
         computed: {
             ...mapGetters([
-                // 'CATEGORIES',
-                // 'CATEGORY',
+                'USERNAME',
+                'LOGGED_IN',
+
             ]),
             
         },

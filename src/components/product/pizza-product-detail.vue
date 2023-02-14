@@ -11,10 +11,10 @@
             <h5 class="card-text card-price">Цена: {{PRODUCT.currentPrice}} руб.</h5>
         </div>
         <div class="card-footer text-muted product-bottom">
-            <div class="d-flex justify-content-between">
-                <div class="quantity card-text">
+            <div class="d-flex justify-content-center">
+                <!-- <div class="quantity card-text">
                     - 1 +
-                </div>
+                </div> -->
                 <div class="cart-button">
                     <button 
                         class="pizza-catalog-item-cart btn btn-primary" 

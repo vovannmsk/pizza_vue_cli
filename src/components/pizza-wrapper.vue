@@ -5,24 +5,21 @@
 </head>
 <body link="White">
     <div class="pizza-wrapper container">
+        <router-link :to="{name: 'cart'}">
+            <div class="pizza-wrapper__link_to_cart  btn btn-secondary">Cart: {{ CART.length }}</div>
+        </router-link>
         <pizza-navbar> </pizza-navbar>
         <router-view> </router-view>
-        <!-- <div class="row">
-            <div class="col-md-3">    
-                <pizza-categories> </pizza-categories>
-            </div>
-            <div class="col-md-9"> 
-                <router-view> </router-view>
-            </div>
-        </div> -->
     </div>
 </body>
 
 </template>
 
 <script>
-// import pizzaCategories from './pizza-categories.vue';
-import pizzaNavbar from './pizza-navbar.vue';
+    import { mapActions, mapGetters } from 'vuex'
+
+    // import pizzaCategories from './pizza-categories.vue';
+    import pizzaNavbar from './pizza-navbar.vue';
 
 
     export default {
@@ -33,19 +30,35 @@ import pizzaNavbar from './pizza-navbar.vue';
             }
         },
         components: {
-            // pizzaCategories,
             pizzaNavbar,
         },
-        computed: {},
-        methods: {},
+        computed: {
+            ...mapGetters([
+                'CART',
+            ]),
+        },
+        methods: {
+            ...mapActions([
+                'GET_PRODUCTS_FROM_API',
+                ]),
+        },
+        mounted() {
+            // this.GET_PRODUCTS_FROM_API();
+        }
     }
 </script>
 
 
-<style>
-    /* .pizza-wrapper {
-
-    } */
+<style lang="scss">
+    .pizza-wrapper {
+        &__link_to_cart {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: $padding*2;
+            border: solid 1px #aeaeae;
+        }
+    } 
     html {
         font-size:16px;
     }

@@ -22,10 +22,6 @@
 </template>
 
 <script>
-    // import { 
-    //     mapActions, 
-    //     mapGetters 
-    // } from 'vuex'
     export default {
         name: 'pizza-cart-item',
         props: {
@@ -48,7 +44,7 @@
             },
             deleteFromCart() {
                 this.$emit('deleteFromCart')
-            }
+            },
         },
         mounted() {
         },
