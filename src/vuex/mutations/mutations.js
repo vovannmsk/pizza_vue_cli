@@ -1,6 +1,7 @@
 export default {
     SET_CATEGORIES_TO_STATE: (state, categories) => {
-        state.categories = categories.results;
+        // state.categories = categories.results;
+        state.categories = categories;
         state.categories[state.categories.length] = {
             "id": 0,
             "pk": 0,
@@ -46,8 +47,8 @@ export default {
         state.cart[index].quantity--
         }
     },
-    SELECT_CATEGORY: (state, pk) => {
-        state.selectedCategory = pk
+    SELECT_CATEGORY: (state, category) => {
+        state.selectedCategory = category
     },
     SELECT_PRODUCT: (state, pk) => {
         //console.log(pk);
@@ -59,5 +60,30 @@ export default {
     SET_MAX_PRICE_TO_STATE: (state, price) => {
         state.maxPrice = price;
     },
-
+    SET_FILTER_PRODUCTS: (state, products) => {
+        state.filteredProducts = products;
+    },
+    SET_FILTERED_PRODUCTS_TO_STATE: (state, category) => {
+        // отбор по категории
+        let prod = []
+        category = state.selectedCategory.nameOfType
+        if (category === 'Все категории') {
+            state.filteredProducts = state.products;
+        } else {
+            state.products.map(function (item) {
+            if (item.type_product === category) {
+                prod.push(item);
+            }
+            });
+            state.filteredProducts = prod;
+        }
+        // отбор по цене
+        prod = []
+        state.filteredProducts.map(function (item) {
+            if (item.currentPrice >= state.minPrice && item.currentPrice <= state.maxPrice) {
+                prod.push(item);
+            }
+        });
+        state.filteredProducts = prod;
+    },
 }

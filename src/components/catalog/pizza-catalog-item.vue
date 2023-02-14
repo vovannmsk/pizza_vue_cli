@@ -1,24 +1,41 @@
 <template>
+    <pizza-popup
+        v-if="isPopupVisible"
+        @closePopup="closePopup"
+        :popupTitle="product_data.name"
+    >
+        <pizzaWrapperProduct></pizzaWrapperProduct>
+    </pizza-popup>
     <div class="pizza-catalog-item col-lg-3 col-sm-6 mb-2 card">
+
         <div class="card-img-top product-thumb">
             <!-- <router-link :to="{name: 'product', params: {pk: product_data.pk}}"> -->
-            <router-link :to="{name: 'product'}">
+            
+            <!-- используем роутер для перемещения на страницу с инфо о товаре     -->
+            <!-- <router-link :to="{name: 'product'}">
                 <img    :src="product_data.photo" 
                         :alt="product_data.shortName"
                         @click="showProductDetail"
                 >
-            </router-link>
+            </router-link> -->
+
+            <!-- используем модальное окно для просмотра инфо о товаре     -->
+            <img    class="btn"
+                    :src="product_data.photo" 
+                    :alt="product_data.shortName"
+                    @click="showPopup"
+                >
         </div>
         <div class="card-body product-details">
             <h4 class="card-title">{{product_data.name}}</h4>
             <p class="card-text">Ингредиенты: {{product_data.ingredients}}</p>
-            <h5 class="card-text card-price">Цена: {{product_data.currentPrice}} руб.</h5>
+            <h5 class="card-text card-price">Цена: {{ formattedPrice(product_data.currentPrice) }}</h5>
         </div>
         <div class="card-footer text-muted product-bottom">
-            <div class="d-flex justify-content-between">
-                <div class="quantity card-text">
+            <div class="d-flex justify-content-center">
+                <!-- <div class="quantity card-text">
                     - 1 +
-                </div>
+                </div> -->
                 <div class="cart-button">
                     <button 
                         class="pizza-catalog-item-cart btn btn-primary" 
@@ -33,11 +50,18 @@
 
 <script>
     import { mapActions } from 'vuex'
+    import pizzaPopup from '../popup/pizza-popup.vue'
+    import pizzaWrapperProduct from '../product/pizza-wrapper-product.vue'
 
     export default {
         name: 'pizza-catalog-item',
-        components: {
+        // явное объявление о том, что событие 'productToCart' 
+        // будет сгенерировано в этом компоненте
+        emits: ['productToCart'],   
 
+        components: {
+            pizzaPopup,
+            pizzaWrapperProduct,
         },
         props: {
             product_data: {
@@ -45,18 +69,21 @@
                 default() {
                     return {}
                 }
-            }
+            },
         },
         data() {
             return {
-                
+                isPopupVisible: false,   
             }
         },
-        computed: {},
+        computed: {
+            
+        },
         methods: {
             ...mapActions([
                 'SELECT_PRODUCT_FROM_CATALOG',
                 'SET_PRODUCT_FROM_CATALOG',
+                'FORMATTED_PRICE',
             ]),
             addToCart() {
                 this.$emit('productToCart', this.product_data)
@@ -66,9 +93,20 @@
             * использования в других компонентах. 
             */
             showProductDetail() {
-                this.SELECT_PRODUCT_FROM_CATALOG(this.product_data.pk)
-                this.SET_PRODUCT_FROM_CATALOG(this.product_data)
-            }
+                this.SELECT_PRODUCT_FROM_CATALOG(this.product_data.pk);
+                this.SET_PRODUCT_FROM_CATALOG(this.product_data);
+            },
+            showPopup() {
+                this.SELECT_PRODUCT_FROM_CATALOG(this.product_data.pk);
+                this.SET_PRODUCT_FROM_CATALOG(this.product_data);
+                this.isPopupVisible = true;
+            },
+            closePopup() {
+                this.isPopupVisible = false;
+            },
+            formattedPrice(value) {
+                return value.replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' руб.';
+            },
         },
     }
 </script>

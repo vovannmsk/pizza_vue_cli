@@ -10,6 +10,7 @@ export default {
     // },
 
     ADD_TO_CART({commit}, product) {
+      //console.log(product.name)
       commit('SET_CART', product);
     },
     DELETE_FROM_CART({commit}, index) {
@@ -43,5 +44,12 @@ export default {
       // console.log(product)
       commit('SET_MAX_PRICE_TO_STATE', price)
     },
+    FILTER_PRODUCTS({commit}) {
+      commit('SET_FILTERED_PRODUCTS_TO_STATE')
+    },
+    // FORMATTED_PRICE(value) {
+    //   return value.replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' руб.'
+    // },
+  
 
   }

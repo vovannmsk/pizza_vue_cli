@@ -18,6 +18,8 @@
 </template>
 
 <script>
+    // import { mapActions } from 'vuex'
+
     // import pizzaCategories from './pizza-categories.vue'
     import pizzaCatalog from './pizza-catalog.vue'
     import pizzaWrapperFilters from './pizza-wrapper-filters.vue'
@@ -35,12 +37,9 @@
                 
             }
         },
-        computed: {
-        },
-        methods: {
-        },
-        mounted() {
-        }
+        computed: {},
+        methods: {},
+        mounted() {}
 
     }
 </script>

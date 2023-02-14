@@ -23,13 +23,13 @@
         <br>
         <br>
         <div class="range-values">
-            <p>Min: {{minPrice}}</p>
-            <p>Max: {{maxPrice}}</p>
+            <p>Min: {{this.MIN_PRICE}}</p>
+            <p>Max: {{this.MAX_PRICE}}</p>
         </div>
     </div>
 </template>
 <script>
-    // import { mapActions, mapGetters } from 'vuex'
+    import { mapActions, mapGetters } from 'vuex'
     export default {
         name: 'pizza-range-sliders',
         components: {
@@ -43,29 +43,33 @@
             }
         },
         computed: {
-            // ...mapGetters([
-            //     'CATEGORIES',
-            //     'CATEGORY',
-            // ]),
-            
+            ...mapGetters([
+                'MIN_PRICE',
+                'MAX_PRICE',
+            ]),
         },
         methods: {
-            // ...mapActions([
-            //     'GET_CATEGORIES_FROM_API',
-            //     'SELECT_CATEGORY_PRODUCTS',
-            //     'GET_PRODUCTS_OF_CATEGORY_FROM_API',
-            // ]),
+            ...mapActions([
+                'FILTER_PRODUCTS',
+                'MIN_PRICE_CHANGE',
+                'MAX_PRICE_CHANGE',
+            ]),
             setRangeSlider() {
                 if (this.minPrice > this.maxPrice) {
                 let tmp = this.maxPrice;
                 this.maxPrice = this.minPrice;
                 this.minPrice = tmp;
                 }
-                // this.sortByCategories()
+                this.MIN_PRICE_CHANGE(this.minPrice);
+                this.MAX_PRICE_CHANGE(this.maxPrice);
+                // запускаем отбор по установленным фильтрам
+                this.FILTER_PRODUCTS()
             },
         },
         mounted() {
             // this.GET_CATEGORIES_FROM_API();
+            this.minPrice = this.MIN_PRICE;
+            this.maxPrice = this.MAX_PRICE;
         },
 
     }
@@ -74,11 +78,7 @@
 
 <style lang="scss">
     /* .pizza-range-sliders {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 900px;
-        margin: 0 auto; 
+
      } */
     .range-slider {
     width: 200px;

@@ -22,10 +22,7 @@
 </template>
 
 <script>
-    // import { 
-    //     mapActions, 
-    //     mapGetters 
-    // } from 'vuex'
+    // import { mapActions } from 'vuex'
     export default {
         name: 'pizza-cart-item',
         props: {
@@ -40,6 +37,9 @@
             return {}
         },
         methods: {
+            // ...mapActions([
+            //     'FORMATTED_PRICE',
+            // ]),
             decrementItem() {
                 this.$emit('decrement')
             },

@@ -1,4 +1,7 @@
 export default  {
+  FILTERED_PRODUCTS(state) {
+    return state.filteredProducts;
+  },
   PRODUCTS(state) {
     return state.products;
   },
@@ -25,6 +28,7 @@ export default  {
    */
   CATEGORIES(state) {
     return state.categories.sort((a, b) => ( (a.id > b.id) ? 1 : -1 ));
+    // return state.categories;
   },
   CATEGORY(state) {
     // console.log(state.selectedCategory);
