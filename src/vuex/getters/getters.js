@@ -1,4 +1,7 @@
 export default  {
+  ORDER_ID(state) {
+    return state.order_id;
+  },
   FILTERED_PRODUCTS(state) {
     return state.filteredProducts;
   },
@@ -61,6 +64,15 @@ export default  {
   },
   TO_ROUTER(state) {
     return state.toRouter;
+  },
+  MY_ORDERS(state) {
+    return state.myOrders;
+  },
+  PRODUCTS_ORDER(state) {
+    return state.productsOrder;
+  },
+  TOTAL_AMOUNT(state) {
+    return state.totalAmount;
   },
 
     // SEARCH_VALUE(state) {

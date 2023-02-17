@@ -4,7 +4,9 @@
         @closePopup="closePopup"
         :popupTitle="product_data.name"
     >
-        <pizzaWrapperProduct></pizzaWrapperProduct>
+        <pizzaWrapperProduct
+        >
+        </pizzaWrapperProduct>
     </pizza-popup>
     <div class="pizza-catalog-item col-lg-3 col-sm-6 mb-2 card">
 

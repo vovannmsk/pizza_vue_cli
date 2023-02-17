@@ -22,10 +22,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-=======
-    // import { mapActions } from 'vuex'
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
     export default {
         name: 'pizza-cart-item',
         props: {

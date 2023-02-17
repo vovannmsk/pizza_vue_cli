@@ -1,4 +1,7 @@
 export default {
+    // SET_ORDER_ID_TO_STATE: (state, idd) => {
+    //     state.order_id = idd;
+    // },
     SET_CATEGORIES_TO_STATE: (state, categories) => {
         // state.categories = categories.results;
         state.categories = categories;
@@ -30,8 +33,8 @@ export default {
         let isProductExists = false
         state.cart.map(function(item) {
             if (item.pk===product.pk) {
-            isProductExists = true;
-            item.quantity++;
+                isProductExists = true;
+                item.quantity++;
             }
         })
         if (!isProductExists) {
@@ -55,10 +58,7 @@ export default {
         }
     },
     SELECT_CATEGORY: (state, category) => {
-<<<<<<< HEAD
         // console.log('category= '+category.nameOfType);
-=======
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
         state.selectedCategory = category
     },
     SELECT_PRODUCT: (state, pk) => {
@@ -76,17 +76,10 @@ export default {
     SET_FILTER_PRODUCTS: (state, products) => {
         state.filteredProducts = products;
     },
-<<<<<<< HEAD
     SET_FILTERED_PRODUCTS_TO_STATE: (state) => {
         // отбор по категории
         let prod = []
         let category = state.selectedCategory.nameOfType
-=======
-    SET_FILTERED_PRODUCTS_TO_STATE: (state, category) => {
-        // отбор по категории
-        let prod = []
-        category = state.selectedCategory.nameOfType
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
         if (category === 'Все категории') {
             state.filteredProducts = state.products;
         } else {
@@ -105,7 +98,6 @@ export default {
             }
         });
         state.filteredProducts = prod;
-<<<<<<< HEAD
         // console.log('фильтры:'+' min:'+state.minPrice+' max:'+state.maxPrice+' cat:'+category)
         // console.log('длина:'+prod.length)
     },
@@ -123,7 +115,18 @@ export default {
     },
     SET_NEXT_ROUTER: (state, to) => {
         state.toRouter = to;
-=======
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
+    },
+    SET_ORDERS_TO_STATE: (state, orders) => {
+        state.myOrders = orders;
+    },
+    SET_PRODUCTS_ORDER_TO_STATE: (state, products) => {
+        state.productsOrder = products;
+    },
+    CLEAR_CART: (state) => {
+        state.cart = [];
+    },
+    SET_TOTAL_AMOUNT_TO_STATE: (state, summa) => {
+        // console.log(summa)
+        state.totalAmount = summa;
     },
 }

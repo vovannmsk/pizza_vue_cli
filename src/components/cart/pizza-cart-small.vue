@@ -1,27 +1,26 @@
 <template>
-    <div class="pizza-cart container">
-        <router-link :to="{name: 'wrapperCatalog'}">
+    <div class="pizza-cart-small container">
+        <!-- <router-link :to="{name: 'wrapperCatalog'}">
             <div class="pizza-cart__link_to_wrapper_catalog btn btn-secondary">В каталог</div>
-        </router-link>
+        </router-link> -->
 
         <div class="row">
-            <div class="text-bg-primary p-4">
-                <h2>Ваша корзина</h2>
-            </div>
-
+            <div class="text-bg-secondary p-2">
+                    <h3>Ваш заказ</h3>
+                </div>
             <div v-if="!CART.length"><h1>Корзина пуста</h1></div>
             <div v-else>
                 <table class="table">
                     <thead>
                         <tr>
-                        <th scope="col">Фото</th>
-                        <th scope="col">Наименование продукта</th>
-                        <th scope="col">Кол-во убавить</th>
-                        <th scope="col">Количество</th>
-                        <th scope="col">Кол-во прибавить</th>
-                        <th scope="col">Удалить</th>
-                        <th scope="col">Цена продукта</th>
-                        <th scope="col">Итоговая цена</th>
+                            <th scope="col">Фото</th>
+                            <th scope="col">Наименование продукта</th>
+                            <th scope="col">Кол-во убавить</th>
+                            <th scope="col">Количество</th>
+                            <th scope="col">Кол-во прибавить</th>
+                            <th scope="col">Удалить</th>
+                            <th scope="col">Цена продукта</th>
+                            <th scope="col">Итоговая цена</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +35,7 @@
                                 @increment="increment(index)"
                                 @decrement="decrement(index)"
                             >
+
                             </pizzaCartItem>
                         <tr class="total">
                             <td>Total</td>
@@ -47,21 +47,16 @@
                     </tbody>
                 </table>
             </div>
-            <div>
-                <br>
-                <button class="btn btn-primary">
-                    <router-link :to="{name: 'createOrder'}" class="nav-link">Оформить заказ</router-link>
-                </button>
-            </div>
         </div>
     </div>
 </template>
 <script>
     import pizzaCartItem from './pizza-cart-item.vue'
     import { mapActions, mapGetters } from 'vuex'
+    // import store from '@/vuex/store'
 
     export default {
-        name: 'pizza-cart',
+        name: 'pizza-cart-small',
         components: {
             pizzaCartItem
         },
@@ -87,6 +82,8 @@
                 for (let item of this.CART) {
                     summa = summa + item.currentPrice * item.quantity
                 }
+                this.SET_TOTAL_AMOUNT(summa);
+                // store.state.totalAmount = summa;
                 return summa
             },
             totalQuantity: function() {
@@ -103,6 +100,7 @@
                 'DELETE_FROM_CART',
                 'INCREMENT_CART_ITEM',
                 'DECREMENT_CART_ITEM',
+                'SET_TOTAL_AMOUNT',
             ]),
             deleteFromCart(index) {
                 this.DELETE_FROM_CART(index)
@@ -120,7 +118,7 @@
 
 
 <style lang="scss">
-    .pizza-cart {
+    .pizza-cart-small {
         display: flex;
         justify-content: center;
         align-items: center;

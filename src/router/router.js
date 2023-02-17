@@ -9,6 +9,9 @@ import pizzaLogin from '../components/auth/pizza-login.vue'
 import pizzaLogout from '../components/auth/pizza-logout.vue'
 import pizzaMyFeedbacks from '../components/feedbacks/pizza-my-feedbacks.vue'
 import pizzaPostFeedback from '../components/feedbacks/pizza-post-feedback.vue'
+import pizzaAdmin from '../components/auth/pizza-admin.vue'
+import pizzaCreateOrder from '../components/orders/pizza-create-order.vue'
+import pizzaMyOrders from '../components/orders/pizza-my-orders.vue'
 
 const router = createRouter ({
     history : createWebHistory(),
@@ -73,6 +76,31 @@ const router = createRouter ({
                 requiresLogin: true
             }
         },
+        {
+            path: '/admin',
+            name: 'adminka',
+            component: pizzaAdmin,
+            meta: {
+                requiresLogin: true
+            }
+        },
+        {
+            path: '/create_order',
+            name: 'createOrder',
+            component: pizzaCreateOrder,
+            meta: {
+                requiresLogin: true
+            }
+        },
+        {
+            path: '/my_orders',
+            name: 'myOrders',
+            component: pizzaMyOrders,
+            meta: {
+                requiresLogin: true
+            }
+        },
+
     ]
 })
 

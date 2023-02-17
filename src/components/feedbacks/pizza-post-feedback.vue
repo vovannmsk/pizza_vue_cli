@@ -10,7 +10,6 @@
                     </div>
                     <div id="v-model-select-dynamic" class="form-label">
                         <select v-model="selectedProduct" class="form-select" aria-label="Default select example">
-                            <!-- <option selected>Open this select menu</option> -->
                             <option 
                                     v-for="product in PRODUCTS"
                                     :key="product.id" 
@@ -45,7 +44,7 @@
         data() {
             return {
                 nameOfUser: "",
-                selectedProduct: 0,
+                selectedProduct: 1,
                 feedback: "",
             }
         },
@@ -60,6 +59,10 @@
                 'POST_FEEDBACK_TO_API',
             ]),
             postFeedback() {
+                // если не выбрали продукт из списка, то = 1
+                if (this.selectedProduct===null) {
+                    this.selectedProduct = 1
+                }
                 let dataForm = {
                      "buyer": this.nameOfUser,
                      "comment": this.feedback,
@@ -67,17 +70,12 @@
                 }
                 this.POST_FEEDBACK_TO_API(dataForm)
                 .then(() => {
-                    this.$router.push({ name: 'myFeedbacks'})  //после логирования переходим 
-                                                                //на страницу своих отзывов
+                    this.$router.push({ name: 'main'})  //после логирования переходим 
+                                                        //на главную страницу
                 })
                 .catch(err => {
                     console.log(err)
                 })
-
-
-
-
-
             },
         },
         mounted() {

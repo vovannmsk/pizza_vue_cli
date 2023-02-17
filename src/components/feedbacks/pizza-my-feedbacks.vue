@@ -1,31 +1,38 @@
 <template>
-    <div class="pizza-my-feedbacks container-fluid">
+    <div class="pizza-my-feedbacks container-fluid text-center">
         <div class="row">
             <div class = "col-xl-6 col-lg-9 col-md-12 col-sm-12">
                 <div class="text-bg-primary p-4">
                     <h2>Ваши отзывы</h2>
                 </div>
-                <table class="table">
+                <div class="row heading p-2 align-items-center"> 
+                    <div class="col-2">Фото товара</div>
+                    <div class="col-5">Наименование товара</div>
+                    <div class="col-5">Ваш комментарий</div>
+                </div>
+                <pizza-my-feedback
+                    v-for="feedback in MY_FEEDBACKS"
+                    :key="feedback.id"
+                    :feedback="feedback"
+                >
+                </pizza-my-feedback>
+                <!-- <table class="table">
                     <thead>
                         <tr>
-                          <th scope="col">Фото товара</th>
-                          <th scope="col">Наименование товара</th>
-                          <th scope="col">Ваш комментарий</th>
+                          <th class="feedbacks-theed" scope="col">Фото товара</th>
+                          <th class="feedbacks-theed" scope="col">Наименование товара</th>
+                          <th class="feedbacks-theed" scope="col">Ваш комментарий</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr 
+                        <pizza-my-feedback
                             v-for="feedback in MY_FEEDBACKS"
                             :key="feedback.id"
+                            :feedback="feedback"
                         >
-                            <td> 
-                                <img :src="feedback.product.photo" :alt="feedback.product.shortName" width="100" height="100">
-                            </td>
-                            <td> {{ feedback.product.name }} </td>
-                            <td> {{ feedback.comment }} </td>
-                        </tr>
+                        </pizza-my-feedback>
                     </tbody>
-                </table>
+                </table> -->
             </div>
         </div>
     </div>
@@ -33,11 +40,12 @@
 
 <script>
     import { mapActions, mapGetters } from 'vuex'
+    import pizzaMyFeedback from './pizza-my-feedback.vue'
 
     export default {
         name: 'pizza-my-feedbacks',
         components: {
-            
+            pizzaMyFeedback, 
         },
         props: {},
         data() {
@@ -63,8 +71,16 @@
 </script>
 
 <style lang="scss">
-    // .pizza-my-feedbacks {
+    .pizza-my-feedbacks {
+        .feedbacks-theed {
+            vertical-align: middle;
+        }
+        .heading {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
 
-    // } 
+    } 
 
 </style>

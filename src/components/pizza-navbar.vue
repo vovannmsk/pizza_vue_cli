@@ -21,16 +21,16 @@
                             <router-link :to="{name: 'contacts'}" class="nav-link">О нас</router-link>
                         </li>
 
-                        <!-- {% if request.user.is_authenticated %} -->
-                        <li class="nav-item"> <a class="nav-link" href="#">Мои заказы</a> </li>
+                        <li class="nav-item"> 
+                            <router-link :to="{name: 'myOrders'}" class="nav-link">Мои заказы</router-link>
+                        </li>
 
                         <li class="nav-item"> 
                             <router-link :to="{name: 'myFeedbacks'}" class="nav-link">Мои отзывы</router-link>
                         </li>
 
-                        <!-- {% if request.user.username == 'admin' %} -->
                         <li v-if="LOGGED_IN" class="nav-item"> 
-                            <a class="nav-link" href="'http://localhost:8000/admin">Админка</a> 
+                            <router-link :to="{name: 'adminka'}" class="nav-link">Админка</router-link>
                         </li>
 
 

@@ -1,7 +1,5 @@
 <template>
     <div class="pizza-range-sliders container">
-        <br>
-        <br>
         <div class="range-slider row">
             <input
                 type="range"
@@ -20,11 +18,11 @@
                 @change="setRangeSlider"
             >
         </div>
-        <br>
-        <br>
-        <div class="range-values">
-            <p>Min: {{this.MIN_PRICE}}</p>
-            <p>Max: {{this.MAX_PRICE}}</p>
+
+        <div class="range-values row">
+            <div class="col-6 Min">Min: {{this.MIN_PRICE}}</div>
+            <!-- <p>Min: {{this.MIN_PRICE}}</p> -->
+            <div class="col-6 Max">Max: {{this.MAX_PRICE}}</div>
         </div>
     </div>
 </template>
@@ -53,10 +51,7 @@
                 'FILTER_PRODUCTS',
                 'MIN_PRICE_CHANGE',
                 'MAX_PRICE_CHANGE',
-<<<<<<< HEAD
                 'CHANGE_CURRENT_PAGE',
-=======
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
             ]),
             setRangeSlider() {
                 if (this.minPrice > this.maxPrice) {
@@ -67,14 +62,10 @@
                 this.MIN_PRICE_CHANGE(this.minPrice);
                 this.MAX_PRICE_CHANGE(this.maxPrice);
                 // запускаем отбор по установленным фильтрам
-<<<<<<< HEAD
                 // и текущая страница в пагинации = 1
                 this.CHANGE_CURRENT_PAGE(1);
                 this.FILTER_PRODUCTS()
 
-=======
-                this.FILTER_PRODUCTS()
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
             },
         },
         mounted() {
@@ -88,18 +79,14 @@
 
 
 <style lang="scss">
-<<<<<<< HEAD
     // .pizza-range-sliders {
 
     // } 
-=======
-    /* .pizza-range-sliders {
-
-     } */
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
     .range-slider {
         width: 100%;
         margin: auto;
+        margin-top: 80px;
+
         text-align: center;
         position: relative;
     }
@@ -114,6 +101,15 @@
         top: 2px;
         margin-top: -7px;
     }
-    
+    .range-values {
+        margin-top: 0px;
+    }
+    .Min {
+        text-align:left;
+    }
+    .Max {
+        text-align:right;
+    }
+
 </style>
 

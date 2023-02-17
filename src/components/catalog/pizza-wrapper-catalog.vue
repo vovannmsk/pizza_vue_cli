@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-md-3">    
                 <!--  sidebar  -->
-                <pizzaWrapperFilters></pizzaWrapperFilters>
+                <pizzaWrapperFilters 
+                />
             </div>
             <div class="col-md-9"> 
                 <pizza-catalog></pizza-catalog>
@@ -13,12 +14,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-=======
-    // import { mapActions } from 'vuex'
-
-    // import pizzaCategories from './pizza-categories.vue'
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
     import pizzaCatalog from './pizza-catalog.vue'
     import pizzaWrapperFilters from './pizza-wrapper-filters.vue'
     // import { mapActions,  } from 'vuex'
@@ -36,7 +31,6 @@
             }
         },
         computed: {},
-<<<<<<< HEAD
         methods: {
             // ...mapActions([
             //     'GET_PRODUCTS_FROM_API',
@@ -45,10 +39,6 @@
         mounted() {
             // this.GET_PRODUCTS_FROM_API();
         }
-=======
-        methods: {},
-        mounted() {}
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
 
     }
 </script>
