@@ -83,6 +83,7 @@
             ...mapActions([
                 'SELECT_PRODUCT_FROM_CATALOG',
                 'SET_PRODUCT_FROM_CATALOG',
+                'FORMATTED_PRICE',
             ]),
             addToCart() {
                 this.$emit('productToCart', this.product_data)

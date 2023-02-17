@@ -13,6 +13,7 @@ import 'material-design-icons-iconfont'
 // import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 /* add icons to the library */
 // library.add(faUserSecret)
+<<<<<<< HEAD
 
 // перед тем, как перейти по роутеру, проводятся проверки:
 // 1. нужна ли аутентификация?
@@ -32,6 +33,8 @@ router.beforeEach((to, from, next) => {
       next()
     }
   })
+=======
+>>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
 
 createApp(App)
 .use(store)

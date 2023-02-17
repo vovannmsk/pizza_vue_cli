@@ -49,6 +49,7 @@ export default {
     FILTER_PRODUCTS({commit}) {
       commit('SET_FILTERED_PRODUCTS_TO_STATE')
     },
+<<<<<<< HEAD
     CHANGE_CURRENT_PAGE({commit}, index) {
       commit('SET_CURRENT_PAGE', index)
     },
@@ -74,6 +75,8 @@ export default {
                                 })
     },
 
+=======
+>>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
     // FORMATTED_PRICE(value) {
     //   return value.replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' руб.'
     // },

@@ -53,7 +53,10 @@
                 'FILTER_PRODUCTS',
                 'MIN_PRICE_CHANGE',
                 'MAX_PRICE_CHANGE',
+<<<<<<< HEAD
                 'CHANGE_CURRENT_PAGE',
+=======
+>>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
             ]),
             setRangeSlider() {
                 if (this.minPrice > this.maxPrice) {
@@ -64,10 +67,14 @@
                 this.MIN_PRICE_CHANGE(this.minPrice);
                 this.MAX_PRICE_CHANGE(this.maxPrice);
                 // запускаем отбор по установленным фильтрам
+<<<<<<< HEAD
                 // и текущая страница в пагинации = 1
                 this.CHANGE_CURRENT_PAGE(1);
                 this.FILTER_PRODUCTS()
 
+=======
+                this.FILTER_PRODUCTS()
+>>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
             },
         },
         mounted() {
@@ -81,9 +88,15 @@
 
 
 <style lang="scss">
+<<<<<<< HEAD
     // .pizza-range-sliders {
 
     // } 
+=======
+    /* .pizza-range-sliders {
+
+     } */
+>>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
     .range-slider {
         width: 100%;
         margin: auto;
