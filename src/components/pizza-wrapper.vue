@@ -8,7 +8,8 @@
         <router-link :to="{name: 'cart'}">
             <div class="pizza-wrapper__link_to_cart  btn btn-secondary">Cart: {{ CART.length }}</div>
         </router-link>
-        <pizza-navbar> </pizza-navbar>
+        <pizza-navbar> 
+        </pizza-navbar>
         <router-view> </router-view>
     </div>
 </body>
@@ -43,11 +44,7 @@
                 ]),
         },
         mounted() {
-<<<<<<< HEAD
             // this.GET_PRODUCTS_FROM_API();
-=======
-            this.GET_PRODUCTS_FROM_API();
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
         }
     }
 </script>

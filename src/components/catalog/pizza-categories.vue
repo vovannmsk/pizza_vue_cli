@@ -37,7 +37,6 @@
             ...mapActions([
                 'GET_CATEGORIES_FROM_API',
                 'SELECT_CATEGORY_PRODUCTS',
-<<<<<<< HEAD
                 'FILTER_PRODUCTS',
                 'CHANGE_CURRENT_PAGE',
             ]),
@@ -48,20 +47,6 @@
                 // и текущая страница в пагинации = 1
                 this.FILTER_PRODUCTS();
                 this.CHANGE_CURRENT_PAGE(1);
-=======
-                // 'GET_PRODUCTS_OF_CATEGORY_FROM_API',
-                'FILTER_PRODUCTS',
-            ]),
-            selectOfCategory(category) {
-                // фиксируем выбранную категорию товаров в store
-                this.SELECT_CATEGORY_PRODUCTS(category)
-                // запускаем отбор по установленным фильтрам
-                this.FILTER_PRODUCTS()
-
-                // подгружаем товары из API, соответствующие выбранной категории товаров
-                // this.GET_PRODUCTS_OF_CATEGORY_FROM_API(this.CATEGORY)  
-
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
             },
         },
         mounted() {

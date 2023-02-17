@@ -55,10 +55,7 @@ export default {
         }
     },
     SELECT_CATEGORY: (state, category) => {
-<<<<<<< HEAD
         // console.log('category= '+category.nameOfType);
-=======
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
         state.selectedCategory = category
     },
     SELECT_PRODUCT: (state, pk) => {
@@ -76,17 +73,10 @@ export default {
     SET_FILTER_PRODUCTS: (state, products) => {
         state.filteredProducts = products;
     },
-<<<<<<< HEAD
     SET_FILTERED_PRODUCTS_TO_STATE: (state) => {
         // отбор по категории
         let prod = []
         let category = state.selectedCategory.nameOfType
-=======
-    SET_FILTERED_PRODUCTS_TO_STATE: (state, category) => {
-        // отбор по категории
-        let prod = []
-        category = state.selectedCategory.nameOfType
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
         if (category === 'Все категории') {
             state.filteredProducts = state.products;
         } else {
@@ -105,7 +95,6 @@ export default {
             }
         });
         state.filteredProducts = prod;
-<<<<<<< HEAD
         // console.log('фильтры:'+' min:'+state.minPrice+' max:'+state.maxPrice+' cat:'+category)
         // console.log('длина:'+prod.length)
     },
@@ -123,7 +112,5 @@ export default {
     },
     SET_NEXT_ROUTER: (state, to) => {
         state.toRouter = to;
-=======
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
     },
 }

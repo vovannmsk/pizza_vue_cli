@@ -2,7 +2,6 @@ import axios from "axios";
 import store from "../store";
 
 export default {
-<<<<<<< HEAD
   /**
  * получение списка продуктов (из API) с отправкой токена
  */
@@ -32,10 +31,6 @@ export default {
     // console.log ('access in API = '+this.state.accessToken)
     return axios.get('http://localhost:8000/api/v1/generic/list', 
                       { headers: { Authorization: `Bearer ${this.state.accessToken}` } })
-=======
-  GET_PRODUCTS_FROM_API({commit}) {
-    return axios.get('http://localhost:8000/api/v1/generic/list')
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
                 .then((products) => {
                   commit('SET_PRODUCTS_TO_STATE', products.data);  //список продуктов из API помещаем в products
                   commit('SET_FILTER_PRODUCTS', products.data);    // и в filteredProducts
@@ -45,12 +40,9 @@ export default {
                   return error;
                 })
   },
-<<<<<<< HEAD
   /**
    * список категорий товаров (из API)
    */  
-=======
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
   GET_CATEGORIES_FROM_API({commit}) {
     return axios.get('http://localhost:8000/api/v1/generic/cat')
                 .then((categories) => {
@@ -61,32 +53,6 @@ export default {
                   return error;
                 })
   },
-<<<<<<< HEAD
-
-=======
-  GET_PRODUCTS_OF_CATEGORY_FROM_API({commit}, cat) {
-    // console.log(cat)
-    if (cat===0) {
-      return axios.get('http://localhost:8000/api/v1/generic/list')
-                  .then((products) => {
-                    commit('SET_PRODUCTS_TO_STATE', products.data);
-                    return products
-                  }).catch((error) => {
-                    console.log(error)
-                    return error;
-                  })
-    } else {
-      return axios.get('http://localhost:8000/api/v1/generic/cat/'+cat)
-                  .then((products) => {
-                    commit('SET_PRODUCTS_TO_STATE', products.data);
-                    return products
-                  }).catch((error) => {
-                    console.log(error)
-                    return error;
-                  })
-    }
-  },
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
   /**
    * получение одного продукта (из API)
    */
@@ -115,7 +81,6 @@ export default {
                   return error;
                 })
   },
-<<<<<<< HEAD
   USER_LOGIN (context, usercredentials) {
     return new Promise((resolve, reject) => {
       axios.post('http://localhost:8000/api-token/', {
@@ -147,8 +112,6 @@ export default {
                 })
   },
 
-=======
->>>>>>> a534917f84a817625eaa4581a29e014a81a977cc
   /**
    * получаем список продуктов по указанной ссылке
    * используется для пагинации
