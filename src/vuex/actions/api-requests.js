@@ -161,7 +161,6 @@ export default {
                   return error;
                 })
   },
-
   /**
    * список категорий товаров (из API)
    */  
@@ -175,7 +174,6 @@ export default {
                   return error;
                 })
   },
-
   /**
    * получение одного продукта (из API)
    */
